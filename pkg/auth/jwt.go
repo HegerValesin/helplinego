@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/hegervalesin/helpline-go/internal/models"
+	"github.com/hegervalesin/helplinego/internal/models"
 )
 
 type JWTClaim struct {

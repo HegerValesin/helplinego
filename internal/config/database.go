@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/hegervalesin/helpline-go/internal/models"
+	"github.com/hegervalesin/helplinego/internal/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
