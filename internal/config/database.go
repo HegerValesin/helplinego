@@ -28,16 +28,23 @@ func SetupDatabase() *gorm.DB {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
 
+	db.Exec("SET CONSTRAINTS ALL DEFERRED")
+	// err = db.AutoMigrate(&models.User{})
+	// if err != nil {
+	// 	log.Fatalf("Failed to migrate users table: %v", err)
+	// }
+
 	// Automigrate para criar as tabelas
 	err = db.AutoMigrate(
-		&models.User{},
 		&models.Sector{},
-		&models.Service{},
+		&models.User{},
+		&models.Services{},
 		&models.Facility{},
 		&models.Floor{},
 		&models.Room{},
-		&models.Ticket{},
 	)
+
+	db.Exec("SET CONSTRAINTS ALL IMMEDIATE")
 
 	if err != nil {
 		log.Fatalf("Failed to migrate database: %v", err)
